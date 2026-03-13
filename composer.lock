@@ -1,0 +1,70 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "512cd550ac8407874d79d2127ed94226",
+    "packages": [
+        {
+            "name": "maib-ecomm/maib-checkout-sdk-php",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/maib-ecomm/maib-checkout-sdk-php.git",
+                "reference": "7bddff00a3211d2ae3097d2af8f5ffa354dfc0f3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/maib-ecomm/maib-checkout-sdk-php/zipball/7bddff00a3211d2ae3097d2af8f5ffa354dfc0f3",
+                "reference": "7bddff00a3211d2ae3097d2af8f5ffa354dfc0f3",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": ">=5.6.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "MaibEcomm\\MaibCheckoutSdk\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "PHP SDK for maib checkout API",
+            "homepage": "https://github.com/maib-ecomm/maib-checkout-sdk-php",
+            "keywords": [
+                "api",
+                "checkout",
+                "maib",
+                "payments",
+                "php",
+                "sdk"
+            ],
+            "support": {
+                "issues": "https://github.com/maib-ecomm/maib-checkout-sdk-php/issues",
+                "source": "https://github.com/maib-ecomm/maib-checkout-sdk-php/tree/v1.0.2"
+            },
+            "time": "2026-03-11T06:59:07+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {},
+    "prefer-stable": true,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=7.2.5",
+        "ext-json": "*"
+    },
+    "platform-dev": {},
+    "platform-overrides": {
+        "php": "7.2.5"
+    },
+    "plugin-api-version": "2.9.0"
+}

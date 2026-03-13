@@ -1,0 +1,54 @@
+{
+    "packages": [
+        {
+            "name": "maib-ecomm/maib-checkout-sdk-php",
+            "version": "v1.0.2",
+            "version_normalized": "1.0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/maib-ecomm/maib-checkout-sdk-php.git",
+                "reference": "7bddff00a3211d2ae3097d2af8f5ffa354dfc0f3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/maib-ecomm/maib-checkout-sdk-php/zipball/7bddff00a3211d2ae3097d2af8f5ffa354dfc0f3",
+                "reference": "7bddff00a3211d2ae3097d2af8f5ffa354dfc0f3",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": ">=5.6.0"
+            },
+            "time": "2026-03-11T06:59:07+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "MaibEcomm\\MaibCheckoutSdk\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "PHP SDK for maib checkout API",
+            "homepage": "https://github.com/maib-ecomm/maib-checkout-sdk-php",
+            "keywords": [
+                "api",
+                "checkout",
+                "maib",
+                "payments",
+                "php",
+                "sdk"
+            ],
+            "support": {
+                "issues": "https://github.com/maib-ecomm/maib-checkout-sdk-php/issues",
+                "source": "https://github.com/maib-ecomm/maib-checkout-sdk-php/tree/v1.0.2"
+            },
+            "install-path": "../maib-ecomm/maib-checkout-sdk-php"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}
