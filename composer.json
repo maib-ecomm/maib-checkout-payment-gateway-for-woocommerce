@@ -16,7 +16,7 @@
   "license": "GPL-3.0-or-later",
   "require": {
     "php": ">=7.2.5",
-    "maib-ecomm/maib-checkout-sdk-php": "^v1.0.2",
+    "maib-ecomm/maib-checkout-sdk-php": "^v1.0.3",
     "ext-json": "*"
   },
   "config": {

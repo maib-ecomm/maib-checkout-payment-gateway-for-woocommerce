@@ -8,10 +8,10 @@
     "packages": [
         {
             "name": "maib-ecomm/maib-checkout-sdk-php",
-            "version": "v1.0.2",
+            "version": "v1.0.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/maib-ecomm/maib-checkout-sdk-php.git",
+                "url": "https://github.com/maib-ecomm/maib-checkocdut-sdk-php.git",
                 "reference": "7bddff00a3211d2ae3097d2af8f5ffa354dfc0f3"
             },
             "dist": {

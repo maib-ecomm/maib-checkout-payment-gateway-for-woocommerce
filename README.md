@@ -67,7 +67,7 @@ Configure which WooCommerce status should be set when:
 ## Screenshots
 
 1. Plugin settings  
-   ![Plugin settings](./.wordpress-org/screen-1.png)
+   ![Plugin settings](./assets/screenshots/screen-1.png)
 
 ---
 

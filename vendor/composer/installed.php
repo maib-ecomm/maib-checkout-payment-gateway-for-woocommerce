@@ -20,8 +20,8 @@
             'dev_requirement' => false,
         ),
         'maib-ecomm/maib-checkout-sdk-php' => array(
-            'pretty_version' => 'v1.0.2',
-            'version' => '1.0.2.0',
+            'pretty_version' => 'v1.0.3',
+            'version' => '1.0.3.0',
             'reference' => '7bddff00a3211d2ae3097d2af8f5ffa354dfc0f3',
             'type' => 'library',
             'install_path' => __DIR__ . '/../maib-ecomm/maib-checkout-sdk-php',

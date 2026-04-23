@@ -18,6 +18,7 @@
  * Tested up to: 6.5.4
  * WC requires at least: 3.3
  * WC tested up to: 7.8.0
+ * Requires Plugins: woocommerce
  */
 
 use MaibEcomm\MaibCheckoutSdk\MaibCheckoutApiRequest;
@@ -301,8 +302,6 @@ function maib_payment_gateway_init()
                 return array();
             }
 
-            update_post_meta($order_id, '_checkout_id', $checkoutResult->checkoutId);
-
             $order->update_meta_data('_checkout_id', $checkoutResult->checkoutId);
             $order->add_order_note('maib Checkout ID: <br>' . $checkoutResult->checkoutId);
             $order->save();
@@ -483,6 +482,7 @@ function maib_payment_gateway_init()
             return $api->getRefund($refund_id, $token);
         }
 
+
         private function wait_refund_completion($token, $refund_id)
         {
             $maxAttempts = 15;
@@ -540,14 +540,14 @@ function maib_payment_gateway_init()
          */
         public function route_callback()
         {
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (isset($_SERVER['REQUEST_METHOD']) && 'POST' === sanitize_text_field(wp_unslash($_SERVER['REQUEST_METHOD']))) {
                 $rawBody = file_get_contents('php://input');
                 $data = json_decode($rawBody, true);
 
                 if (!$data) {
                     http_response_code(400);
                     header('Content-Type: text/plain; charset=utf-8');
-                    echo "ERROR";
+                    echo esc_html('ERROR');;
                     $this->log('Callback URL - Payment data not found in notification.', 'error');
                     exit();
                 }
@@ -577,7 +577,7 @@ function maib_payment_gateway_init()
 
            if (!$isValid)
            {
-               echo "Invalid signature";
+               echo esc_html('Invalid signature');
                $this->log(sprintf('Signature is invalid: %s', $expectedSig), 'info');
                if ($order) {
                    $order->add_order_note('Callback Signature is invalid!');
@@ -591,7 +591,7 @@ function maib_payment_gateway_init()
             {
                 http_response_code(400);
                 header('Content-Type: text/plain; charset=utf-8');
-                echo "Payment Status not found in notification.";
+                echo esc_html('Payment Status not found in notification.');
                 $this->log('Callback URL - Payment Status not found in notification.', 'error');
                 exit();
             }
@@ -600,7 +600,7 @@ function maib_payment_gateway_init()
             {
                 http_response_code(400);
                 header('Content-Type: text/plain; charset=utf-8');
-                echo "Payment ID not found in notification.";
+                echo esc_html('Payment ID not found in notification.');
                 $this->log('Callback URL - Payment ID not found in notification.', 'error');
                 exit();
             }
@@ -609,7 +609,7 @@ function maib_payment_gateway_init()
             {
                 http_response_code(400);
                 header('Content-Type: text/plain; charset=utf-8');
-                echo "Order is not found.";
+                echo esc_html('Order is not found.');
                 $this->log('Callback URL - Order ID not found in woocommerce Orders.', 'error');
                 exit();
             }
@@ -631,7 +631,7 @@ function maib_payment_gateway_init()
             $order->set_transaction_id($pay_id);
             $order->save();
 
-            echo "OK";
+            echo esc_html('OK');
             exit();
         }
 
@@ -693,20 +693,6 @@ function maib_payment_gateway_init()
                 $this->log($order_note, 'notice');
                 return $order->update_status($newOrderStatus, $order_note);
             }
-        }
-
-        function isFullRefund(\WC_Order $order, $refundAmount = null): bool
-        {
-            if($refundAmount === null)
-                return true;
-
-            $decimals = 2;
-            $pow = 10 ** $decimals;
-
-            $refundMinor = (int) round((float) $refundAmount * $pow);
-            $orderMinor    = (int) round((float) $order->get_total() * $pow);
-
-            return $refundMinor === $orderMinor;
         }
 
         /**
